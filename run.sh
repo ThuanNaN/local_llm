@@ -1,6 +1,9 @@
 #!/bin/bash
-
-cd /home/thuannd/Repository/local_llm
-docker compose up --build -d
+if ! command -v nvidia-smi &> /dev/null
+then
+    docker compose -f docker-compose-cpu.yaml up --build -d
+else
+    docker compose up --build -d
+fi
 
 docker exec $(docker ps -qf "name=ollama") ollama run llama3.2
