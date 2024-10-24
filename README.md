@@ -1,1 +1,7 @@
-# local_llm
+# Local LLM
+
+## Uasge
+
+```bash
+bash ./run.sh
+```
